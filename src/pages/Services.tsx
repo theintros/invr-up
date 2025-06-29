@@ -2,146 +2,167 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { 
-  TrendingUp, 
+  Smile, 
   Shield, 
-  BarChart3, 
-  Users, 
-  Target, 
   Zap, 
+  Heart, 
   ArrowRight,
   CheckCircle,
-  PieChart,
-  DollarSign,
-  Globe,
-  Smartphone
+  Star,
+  Calendar,
+  Award,
+  Clock
 } from 'lucide-react'
 
 const Services = () => {
   const services = [
     {
-      icon: TrendingUp,
-      title: 'Gestão de Portfólio',
-      description: 'Gestão profissional e personalizada do seu portfólio de investimentos com estratégias diversificadas.',
+      icon: Smile,
+      title: 'Implantes Dentários',
+      description: 'Reposição de dentes perdidos com implantes de titânio de alta qualidade e tecnologia 3D.',
+      image: 'https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=600',
       features: [
-        'Análise de perfil de risco',
-        'Diversificação inteligente',
-        'Rebalanceamento automático',
-        'Relatórios mensais detalhados'
+        'Implantes de titânio premium',
+        'Planejamento digital 3D',
+        'Cirurgia guiada por computador',
+        'Próteses personalizadas',
+        'Garantia de 10 anos'
       ],
-      price: 'A partir de R$ 500/mês',
+      price: 'A partir de R$ 1.200',
+      duration: '2-6 meses',
       popular: true
     },
     {
-      icon: BarChart3,
-      title: 'Consultoria Financeira',
-      description: 'Orientação especializada para tomada de decisões financeiras estratégicas e planejamento patrimonial.',
+      icon: Zap,
+      title: 'Ortodontia',
+      description: 'Correção do posicionamento dos dentes com aparelhos tradicionais e invisíveis (Invisalign).',
+      image: 'https://images.pexels.com/photos/6812540/pexels-photo-6812540.jpeg?auto=compress&cs=tinysrgb&w=600',
       features: [
-        'Planejamento financeiro pessoal',
-        'Análise de investimentos',
-        'Estratégias de aposentadoria',
-        'Consultoria tributária'
+        'Aparelhos convencionais',
+        'Aparelhos estéticos',
+        'Invisalign (aparelho invisível)',
+        'Ortodontia digital',
+        'Acompanhamento mensal'
       ],
-      price: 'R$ 200/hora',
+      price: 'A partir de R$ 180/mês',
+      duration: '12-36 meses',
+      popular: false
+    },
+    {
+      icon: Star,
+      title: 'Clareamento Dental',
+      description: 'Dentes mais brancos e brilhantes com técnicas seguras e eficazes, no consultório ou em casa.',
+      image: 'https://images.pexels.com/photos/6812544/pexels-photo-6812544.jpeg?auto=compress&cs=tinysrgb&w=600',
+      features: [
+        'Clareamento a laser',
+        'Clareamento caseiro supervisionado',
+        'Produtos de alta qualidade',
+        'Resultados em 1 sessão',
+        'Manutenção inclusa'
+      ],
+      price: 'A partir de R$ 350',
+      duration: '1-3 sessões',
+      popular: false
+    },
+    {
+      icon: Heart,
+      title: 'Periodontia',
+      description: 'Tratamento especializado das gengivas e estruturas de suporte dos dentes.',
+      image: 'https://images.pexels.com/photos/6812527/pexels-photo-6812527.jpeg?auto=compress&cs=tinysrgb&w=600',
+      features: [
+        'Tratamento de gengivite',
+        'Tratamento de periodontite',
+        'Cirurgia periodontal',
+        'Enxerto gengival',
+        'Manutenção periodontal'
+      ],
+      price: 'A partir de R$ 200',
+      duration: '1-6 sessões',
       popular: false
     },
     {
       icon: Shield,
-      title: 'Proteção Patrimonial',
-      description: 'Estratégias avançadas para proteção e preservação do seu patrimônio contra riscos diversos.',
+      title: 'Endodontia',
+      description: 'Tratamento de canal com tecnologia avançada para salvar dentes comprometidos.',
+      image: 'https://images.pexels.com/photos/6812582/pexels-photo-6812582.jpeg?auto=compress&cs=tinysrgb&w=600',
       features: [
-        'Estruturação patrimonial',
-        'Seguros especializados',
-        'Planejamento sucessório',
-        'Blindagem jurídica'
+        'Microscopia operatória',
+        'Instrumentação rotatória',
+        'Localizador apical',
+        'Obturação termoplástica',
+        'Controle de dor eficaz'
       ],
-      price: 'Sob consulta',
+      price: 'A partir de R$ 400',
+      duration: '1-3 sessões',
       popular: false
     },
     {
-      icon: PieChart,
-      title: 'Análise de Mercado',
-      description: 'Relatórios e insights detalhados sobre tendências de mercado e oportunidades de investimento.',
+      icon: Smile,
+      title: 'Dentística Estética',
+      description: 'Restaurações estéticas, facetas de porcelana e transformações completas do sorriso.',
+      image: 'https://images.pexels.com/photos/6812531/pexels-photo-6812531.jpeg?auto=compress&cs=tinysrgb&w=600',
       features: [
-        'Relatórios semanais',
-        'Análise técnica e fundamentalista',
-        'Alertas de oportunidades',
-        'Webinars exclusivos'
+        'Facetas de porcelana',
+        'Lentes de contato dental',
+        'Restaurações em resina',
+        'Design digital do sorriso',
+        'Harmonização facial'
       ],
-      price: 'R$ 99/mês',
-      popular: false
-    },
-    {
-      icon: Target,
-      title: 'Investimentos Temáticos',
-      description: 'Acesso a investimentos especializados em setores específicos e tendências globais.',
-      features: [
-        'ESG e sustentabilidade',
-        'Tecnologia e inovação',
-        'Mercados emergentes',
-        'Criptomoedas e DeFi'
-      ],
-      price: 'Taxa de performance',
-      popular: false
-    },
-    {
-      icon: Smartphone,
-      title: 'Plataforma Digital',
-      description: 'Acesso completo à nossa plataforma digital com ferramentas avançadas de investimento.',
-      features: [
-        'App mobile e web',
-        'Dashboard personalizado',
-        'Alertas em tempo real',
-        'Suporte 24/7'
-      ],
-      price: 'Gratuito',
-      popular: false
+      price: 'A partir de R$ 800',
+      duration: '2-4 sessões',
+      popular: true
     }
   ]
 
   const benefits = [
     {
-      icon: Users,
-      title: 'Atendimento Personalizado',
-      description: 'Cada cliente recebe atenção individual com estratégias sob medida para seus objetivos.'
+      icon: Award,
+      title: 'Profissionais Especializados',
+      description: 'Equipe com especialização e anos de experiência em cada área.'
     },
     {
       icon: Zap,
       title: 'Tecnologia Avançada',
-      description: 'Utilizamos IA e machine learning para otimizar decisões de investimento.'
+      description: 'Equipamentos de última geração para tratamentos mais precisos.'
     },
     {
-      icon: Globe,
-      title: 'Diversificação Global',
-      description: 'Acesso a mercados internacionais para máxima diversificação do portfólio.'
+      icon: Heart,
+      title: 'Atendimento Humanizado',
+      description: 'Cuidado personalizado com foco no conforto do paciente.'
     },
     {
-      icon: DollarSign,
-      title: 'Transparência Total',
-      description: 'Taxas claras e relatórios detalhados sobre performance e custos.'
+      icon: Shield,
+      title: 'Garantia de Qualidade',
+      description: 'Todos os tratamentos possuem garantia e acompanhamento.'
     }
   ]
 
   const process = [
     {
       step: '01',
-      title: 'Análise de Perfil',
-      description: 'Avaliamos seu perfil de risco, objetivos e situação financeira atual.'
+      title: 'Consulta Inicial',
+      description: 'Avaliação completa e diagnóstico personalizado das suas necessidades.'
     },
     {
       step: '02',
-      title: 'Estratégia Personalizada',
-      description: 'Desenvolvemos uma estratégia de investimento sob medida para você.'
+      title: 'Plano de Tratamento',
+      description: 'Elaboração de um plano detalhado com prazos e valores transparentes.'
     },
     {
       step: '03',
-      title: 'Implementação',
-      description: 'Executamos a estratégia com acompanhamento contínuo e ajustes necessários.'
+      title: 'Execução',
+      description: 'Realização do tratamento com acompanhamento constante e cuidado.'
     },
     {
       step: '04',
-      title: 'Monitoramento',
-      description: 'Acompanhamos performance e fazemos otimizações constantes.'
+      title: 'Acompanhamento',
+      description: 'Manutenção e acompanhamento para garantir resultados duradouros.'
     }
+  ]
+
+  const convenios = [
+    'Unimed', 'Bradesco Saúde', 'SulAmérica', 'Amil', 'Porto Seguro', 'Prevent Senior',
+    'Golden Cross', 'Intermédica', 'NotreDame', 'São Cristóvão'
   ]
 
   return (
@@ -152,7 +173,7 @@ const Services = () => {
       className="min-h-screen pt-20"
     >
       {/* Hero Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-gradient-to-br from-blue-600 to-teal-600 text-white">
         <div className="container-max">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -160,18 +181,19 @@ const Services = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Nossos <span className="gradient-text">Serviços</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Nossos <span className="text-blue-200">Serviços</span>
             </h1>
-            <p className="text-xl text-secondary-300 max-w-3xl mx-auto leading-relaxed">
-              Soluções completas e personalizadas para maximizar seus investimentos e alcançar seus objetivos financeiros.
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+              Tratamentos odontológicos completos com tecnologia de ponta e atendimento personalizado 
+              para cuidar da sua saúde bucal com excelência.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="section-padding bg-white/5 backdrop-blur-sm">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -181,52 +203,66 @@ const Services = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className={`glass-effect p-8 rounded-2xl card-hover group relative ${
-                  service.popular ? 'ring-2 ring-primary-400' : ''
+                className={`bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group hover:-translate-y-2 ${
+                  service.popular ? 'ring-2 ring-blue-400' : ''
                 }`}
               >
                 {service.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-primary-500 to-accent-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                      Mais Popular
-                    </span>
+                  <div className="bg-gradient-to-r from-blue-600 to-teal-600 text-white text-center py-2">
+                    <span className="text-sm font-semibold">Mais Procurado</span>
                   </div>
                 )}
                 
-                <div className="flex items-center mb-6">
-                  <div className="p-3 rounded-xl bg-gradient-to-r from-primary-500/20 to-accent-500/20 mr-4 group-hover:scale-110 transition-transform">
-                    <service.icon className="h-8 w-8 text-primary-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-1">
-                      {service.title}
-                    </h3>
-                    <div className="text-primary-400 font-medium">
-                      {service.price}
+                <div className="relative overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <div className="p-3 rounded-xl bg-white/90 backdrop-blur-sm">
+                      <service.icon className="h-6 w-6 text-blue-600" />
                     </div>
                   </div>
                 </div>
 
-                <p className="text-secondary-300 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-slate-800 mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-slate-600 mb-4 leading-relaxed">
+                    {service.description}
+                  </p>
 
-                <ul className="space-y-3 mb-8">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center space-x-3">
-                      <CheckCircle className="h-4 w-4 text-success-400 flex-shrink-0" />
-                      <span className="text-secondary-200 text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="space-y-2 mb-6">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center space-x-2 text-sm">
+                        <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                        <span className="text-slate-600">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                <Link
-                  to="/contact"
-                  className="w-full btn-primary group text-center block"
-                >
-                  Contratar Serviço
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  <div className="flex items-center justify-between mb-4 text-sm text-slate-500">
+                    <div className="flex items-center space-x-1">
+                      <Clock className="h-4 w-4" />
+                      <span>{service.duration}</span>
+                    </div>
+                    <div className="text-blue-600 font-semibold text-lg">
+                      {service.price}
+                    </div>
+                  </div>
+
+                  <Link
+                    to="/agendamento"
+                    className="w-full bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 flex items-center justify-center space-x-2"
+                  >
+                    <Calendar className="h-4 w-4" />
+                    <span>Agendar Consulta</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -234,7 +270,7 @@ const Services = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="container-max">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -243,11 +279,11 @@ const Services = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Por que Escolher Nossos <span className="gradient-text">Serviços</span>?
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+              Por que Escolher Nossos <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">Tratamentos</span>?
             </h2>
-            <p className="text-xl text-secondary-300 max-w-2xl mx-auto">
-              Diferenciais que fazem da INVR-UP a escolha certa para seus investimentos.
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Diferenciais que fazem da Inovar Odontologia a melhor escolha para sua saúde bucal.
             </p>
           </motion.div>
 
@@ -261,13 +297,13 @@ const Services = () => {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="text-center group"
               >
-                <div className="inline-flex p-4 rounded-xl bg-gradient-to-r from-primary-500/20 to-accent-500/20 mb-4 group-hover:scale-110 transition-transform">
-                  <benefit.icon className="h-8 w-8 text-primary-400" />
+                <div className="inline-flex p-4 rounded-xl bg-gradient-to-r from-blue-500/20 to-teal-500/20 mb-4 group-hover:scale-110 transition-transform">
+                  <benefit.icon className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">
+                <h3 className="text-xl font-semibold text-slate-800 mb-3">
                   {benefit.title}
                 </h3>
-                <p className="text-secondary-300 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed">
                   {benefit.description}
                 </p>
               </motion.div>
@@ -277,7 +313,7 @@ const Services = () => {
       </section>
 
       {/* Process Section */}
-      <section className="section-padding bg-white/5 backdrop-blur-sm">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -286,11 +322,11 @@ const Services = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Como <span className="gradient-text">Trabalhamos</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+              Como <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">Funciona</span>
             </h2>
-            <p className="text-xl text-secondary-300 max-w-2xl mx-auto">
-              Nosso processo estruturado garante resultados consistentes e alinhados com seus objetivos.
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Nosso processo estruturado garante o melhor resultado para seu tratamento.
             </p>
           </motion.div>
 
@@ -304,21 +340,21 @@ const Services = () => {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="relative"
               >
-                <div className="glass-effect p-6 rounded-2xl text-center card-hover">
-                  <div className="text-4xl font-bold gradient-text mb-4">
+                <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-2xl text-center shadow-lg hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-4">
                     {step.step}
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="text-xl font-semibold text-slate-800 mb-3">
                     {step.title}
                   </h3>
-                  <p className="text-secondary-300 leading-relaxed">
+                  <p className="text-slate-600 leading-relaxed">
                     {step.description}
                   </p>
                 </div>
                 
                 {index < process.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <ArrowRight className="h-6 w-6 text-primary-400" />
+                    <ArrowRight className="h-6 w-6 text-blue-400" />
                   </div>
                 )}
               </motion.div>
@@ -327,29 +363,91 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding">
+      {/* Convenios Section */}
+      <section className="section-padding bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="container-max">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="glass-effect p-12 rounded-3xl text-center"
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Pronto para Começar?
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+              Convênios <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">Aceitos</span>
             </h2>
-            <p className="text-xl text-secondary-300 mb-8 max-w-2xl mx-auto">
-              Entre em contato conosco e descubra como podemos ajudar você a alcançar seus objetivos financeiros.
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Trabalhamos com os principais convênios odontológicos do mercado.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="bg-white p-8 rounded-2xl shadow-lg"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              {convenios.map((convenio, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="text-center p-4 bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl hover:shadow-md transition-all"
+                >
+                  <Award className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                  <div className="text-sm font-medium text-slate-700">{convenio}</div>
+                </motion.div>
+              ))}
+            </div>
+            <div className="text-center mt-8">
+              <p className="text-slate-600 mb-4">
+                Não encontrou seu convênio? Entre em contato conosco!
+              </p>
+              <Link
+                to="/contato"
+                className="bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 inline-flex items-center space-x-2"
+              >
+                <span>Consultar Convênio</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section-padding bg-gradient-to-r from-blue-600 to-teal-600 text-white">
+        <div className="container-max text-center">
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Pronto para Transformar Seu Sorriso?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              Agende sua consulta hoje mesmo e descubra como podemos cuidar da sua saúde bucal com excelência.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact" className="btn-primary group text-lg px-8 py-4">
-                Falar com Especialista
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <Link 
+                to="/agendamento" 
+                className="bg-white text-blue-600 hover:bg-blue-50 font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 flex items-center justify-center space-x-2"
+              >
+                <Calendar className="h-5 w-5" />
+                <span>Agendar Consulta</span>
+                <ArrowRight className="h-5 w-5" />
               </Link>
-              <Link to="/portfolio" className="btn-secondary text-lg px-8 py-4">
-                Ver Resultados
+              <Link 
+                to="/contato" 
+                className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:bg-white/20 hover:border-white/30"
+              >
+                Falar Conosco
               </Link>
             </div>
           </motion.div>

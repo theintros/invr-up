@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle, User, MessageSquare } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle, User, MessageSquare, Calendar } from 'lucide-react'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +8,8 @@ const Contact = () => {
     email: '',
     phone: '',
     subject: '',
-    message: ''
+    message: '',
+    preferredTime: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -39,63 +40,83 @@ const Contact = () => {
         email: '',
         phone: '',
         subject: '',
-        message: ''
+        message: '',
+        preferredTime: ''
       })
     }, 3000)
   }
 
   const contactInfo = [
     {
-      icon: Mail,
-      title: 'Email',
-      info: 'contato@invr-up.com',
-      description: 'Resposta em até 24 horas'
+      icon: Phone,
+      title: 'Telefones',
+      info: '(11) 3456-7890',
+      secondary: '(11) 99876-5432',
+      description: 'Atendimento de Seg-Sex: 8h às 18h'
     },
     {
-      icon: Phone,
-      title: 'Telefone',
-      info: '+55 (11) 9999-9999',
-      description: 'Seg-Sex: 8h às 18h'
+      icon: Mail,
+      title: 'Email',
+      info: 'contato@inovar-odontologia.com.br',
+      secondary: 'agendamento@inovar-odontologia.com.br',
+      description: 'Resposta em até 2 horas'
     },
     {
       icon: MapPin,
       title: 'Endereço',
-      info: 'Av. Paulista, 1000 - São Paulo/SP',
-      description: 'Atendimento presencial com agendamento'
+      info: 'Rua das Flores, 123',
+      secondary: 'Vila Madalena, São Paulo/SP',
+      description: 'CEP: 05435-000'
     },
     {
       icon: Clock,
-      title: 'Horário',
+      title: 'Horário de Funcionamento',
       info: 'Segunda a Sexta: 8h às 18h',
-      description: 'Suporte online 24/7'
+      secondary: 'Sábado: 8h às 12h',
+      description: 'Emergências: 24h'
     }
   ]
 
   const subjects = [
-    'Consultoria Financeira',
-    'Gestão de Portfólio',
-    'Análise de Investimentos',
-    'Planejamento Patrimonial',
-    'Suporte Técnico',
+    'Consulta de Avaliação',
+    'Implantes Dentários',
+    'Ortodontia',
+    'Clareamento Dental',
+    'Periodontia',
+    'Endodontia',
+    'Dentística Estética',
+    'Emergência Odontológica',
+    'Informações sobre Convênios',
     'Outros'
+  ]
+
+  const timeSlots = [
+    'Manhã (8h às 12h)',
+    'Tarde (13h às 17h)',
+    'Final da tarde (17h às 18h)',
+    'Sábado manhã (8h às 12h)'
   ]
 
   const faqs = [
     {
-      question: 'Qual o valor mínimo para começar a investir?',
-      answer: 'Não há valor mínimo. Você pode começar com qualquer quantia e ir aumentando gradualmente seus investimentos.'
+      question: 'Como agendar uma consulta?',
+      answer: 'Você pode agendar pelo telefone (11) 3456-7890, WhatsApp (11) 99876-5432, ou através do nosso formulário online. Retornamos o contato em até 2 horas.'
     },
     {
-      question: 'Como funciona a gestão do meu portfólio?',
-      answer: 'Nossa equipe de especialistas analisa seu perfil e objetivos para criar uma estratégia personalizada, com acompanhamento contínuo.'
+      question: 'Quais convênios são aceitos?',
+      answer: 'Trabalhamos com Unimed, Bradesco Saúde, SulAmérica, Amil, Porto Seguro, Prevent Senior e outros. Consulte disponibilidade para seu plano.'
     },
     {
-      question: 'Quais são as taxas cobradas?',
-      answer: 'Nossas taxas são transparentes e competitivas. A taxa de gestão varia de acordo com o serviço contratado, sempre informada previamente.'
+      question: 'Qual o valor da consulta de avaliação?',
+      answer: 'A consulta de avaliação custa R$ 150,00 (particular) ou é coberta pelos convênios credenciados. Inclui exame clínico completo e orientações.'
     },
     {
-      question: 'Posso acompanhar meus investimentos em tempo real?',
-      answer: 'Sim! Nossa plataforma digital permite acompanhamento em tempo real, com relatórios detalhados e alertas personalizados.'
+      question: 'Vocês atendem emergências?',
+      answer: 'Sim! Temos atendimento de emergência 24h. Entre em contato pelo telefone (11) 99876-5432 para casos urgentes.'
+    },
+    {
+      question: 'Onde vocês estão localizados?',
+      answer: 'Estamos na Rua das Flores, 123, Vila Madalena, São Paulo. Próximo ao metrô Fradique Coutinho, com estacionamento próprio.'
     }
   ]
 
@@ -107,7 +128,7 @@ const Contact = () => {
       className="min-h-screen pt-20"
     >
       {/* Hero Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-gradient-to-br from-blue-600 to-teal-600 text-white">
         <div className="container-max">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -115,18 +136,19 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Entre em <span className="gradient-text">Contato</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Entre em <span className="text-blue-200">Contato</span>
             </h1>
-            <p className="text-xl text-secondary-300 max-w-3xl mx-auto leading-relaxed">
-              Estamos aqui para ajudar você a alcançar seus objetivos financeiros. Fale conosco e descubra como podemos transformar seu futuro.
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+              Estamos aqui para cuidar do seu sorriso! Entre em contato conosco e agende sua consulta. 
+              Nossa equipe está pronta para atendê-lo com excelência.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Contact Info */}
-      <section className="section-padding bg-white/5 backdrop-blur-sm">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {contactInfo.map((info, index) => (
@@ -136,18 +158,23 @@ const Contact = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="glass-effect p-6 rounded-2xl text-center card-hover group"
+                className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-2xl text-center shadow-lg hover:shadow-xl transition-all duration-300 group hover:-translate-y-2"
               >
-                <div className="inline-flex p-4 rounded-xl bg-gradient-to-r from-primary-500/20 to-accent-500/20 mb-4 group-hover:scale-110 transition-transform">
-                  <info.icon className="h-8 w-8 text-primary-400" />
+                <div className="inline-flex p-4 rounded-xl bg-gradient-to-r from-blue-500/20 to-teal-500/20 mb-4 group-hover:scale-110 transition-transform">
+                  <info.icon className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">
+                <h3 className="text-xl font-semibold text-slate-800 mb-3">
                   {info.title}
                 </h3>
-                <p className="text-secondary-200 font-medium mb-2">
+                <p className="text-slate-700 font-medium mb-1">
                   {info.info}
                 </p>
-                <p className="text-secondary-400 text-sm">
+                {info.secondary && (
+                  <p className="text-slate-600 mb-2">
+                    {info.secondary}
+                  </p>
+                )}
+                <p className="text-slate-500 text-sm">
                   {info.description}
                 </p>
               </motion.div>
@@ -162,9 +189,9 @@ const Contact = () => {
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="glass-effect p-8 rounded-2xl"
+              className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-2xl shadow-lg"
             >
-              <h3 className="text-2xl font-semibold text-white mb-6">
+              <h3 className="text-2xl font-semibold text-slate-800 mb-6">
                 Envie sua Mensagem
               </h3>
 
@@ -174,23 +201,23 @@ const Contact = () => {
                   animate={{ scale: 1, opacity: 1 }}
                   className="text-center py-12"
                 >
-                  <CheckCircle className="h-16 w-16 text-success-400 mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold text-white mb-2">
+                  <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                  <h4 className="text-xl font-semibold text-slate-800 mb-2">
                     Mensagem Enviada!
                   </h4>
-                  <p className="text-secondary-300">
-                    Obrigado pelo contato. Retornaremos em breve.
+                  <p className="text-slate-600">
+                    Obrigado pelo contato. Retornaremos em até 2 horas.
                   </p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-secondary-200 mb-2">
+                      <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
                         Nome Completo *
                       </label>
                       <div className="relative">
-                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-secondary-400" />
+                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
                         <input
                           type="text"
                           id="name"
@@ -198,18 +225,18 @@ const Contact = () => {
                           value={formData.name}
                           onChange={handleInputChange}
                           required
-                          className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all"
+                          className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                           placeholder="Seu nome completo"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-secondary-200 mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
                         Email *
                       </label>
                       <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-secondary-400" />
+                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
                         <input
                           type="email"
                           id="email"
@@ -217,7 +244,7 @@ const Contact = () => {
                           value={formData.email}
                           onChange={handleInputChange}
                           required
-                          className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all"
+                          className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                           placeholder="seu@email.com"
                         />
                       </div>
@@ -226,39 +253,39 @@ const Contact = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-secondary-200 mb-2">
-                        Telefone
+                      <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-2">
+                        Telefone *
                       </label>
                       <div className="relative">
-                        <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-secondary-400" />
+                        <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
                         <input
                           type="tel"
                           id="phone"
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all"
+                          required
+                          className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                           placeholder="(11) 99999-9999"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-secondary-200 mb-2">
-                        Assunto *
+                      <label htmlFor="preferredTime" className="block text-sm font-medium text-slate-700 mb-2">
+                        Horário Preferido
                       </label>
                       <select
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
+                        id="preferredTime"
+                        name="preferredTime"
+                        value={formData.preferredTime}
                         onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                       >
-                        <option value="" className="bg-secondary-800">Selecione um assunto</option>
-                        {subjects.map((subject, index) => (
-                          <option key={index} value={subject} className="bg-secondary-800">
-                            {subject}
+                        <option value="">Selecione um horário</option>
+                        {timeSlots.map((slot, index) => (
+                          <option key={index} value={slot}>
+                            {slot}
                           </option>
                         ))}
                       </select>
@@ -266,11 +293,32 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-secondary-200 mb-2">
+                    <label htmlFor="subject" className="block text-sm font-medium text-slate-700 mb-2">
+                      Assunto *
+                    </label>
+                    <select
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    >
+                      <option value="">Selecione um assunto</option>
+                      {subjects.map((subject, index) => (
+                        <option key={index} value={subject}>
+                          {subject}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
                       Mensagem *
                     </label>
                     <div className="relative">
-                      <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-secondary-400" />
+                      <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-slate-400" />
                       <textarea
                         id="message"
                         name="message"
@@ -278,7 +326,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         required
                         rows={5}
-                        className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all resize-none"
+                        className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
                         placeholder="Descreva como podemos ajudá-lo..."
                       />
                     </div>
@@ -287,7 +335,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full btn-primary group disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                   >
                     {isSubmitting ? (
                       <div className="flex items-center justify-center">
@@ -300,8 +348,8 @@ const Contact = () => {
                       </div>
                     ) : (
                       <>
-                        Enviar Mensagem
-                        <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                        <Send className="h-5 w-5" />
+                        <span>Enviar Mensagem</span>
                       </>
                     )}
                   </button>
@@ -309,52 +357,67 @@ const Contact = () => {
               )}
             </motion.div>
 
-            {/* Map Placeholder */}
+            {/* Location Info */}
             <motion.div
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="glass-effect p-8 rounded-2xl"
+              className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-2xl shadow-lg"
             >
-              <h3 className="text-2xl font-semibold text-white mb-6">
+              <h3 className="text-2xl font-semibold text-slate-800 mb-6">
                 Nossa Localização
               </h3>
               
-              <div className="h-64 bg-gradient-to-r from-primary-500/10 to-accent-500/10 rounded-xl flex items-center justify-center mb-6">
+              {/* Map Placeholder */}
+              <div className="h-64 bg-gradient-to-r from-blue-500/10 to-teal-500/10 rounded-xl flex items-center justify-center mb-6 border-2 border-dashed border-blue-200">
                 <div className="text-center">
-                  <MapPin className="h-12 w-12 text-primary-400 mx-auto mb-4" />
-                  <p className="text-secondary-300">Mapa Interativo</p>
-                  <p className="text-secondary-400 text-sm">Av. Paulista, 1000 - São Paulo/SP</p>
+                  <MapPin className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                  <p className="text-slate-600 font-medium">Mapa Interativo</p>
+                  <p className="text-slate-500 text-sm">Rua das Flores, 123 - Vila Madalena</p>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <MapPin className="h-5 w-5 text-primary-400 mt-1 flex-shrink-0" />
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <MapPin className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
-                    <p className="text-white font-medium">Endereço</p>
-                    <p className="text-secondary-300 text-sm">Av. Paulista, 1000 - Bela Vista</p>
-                    <p className="text-secondary-300 text-sm">São Paulo/SP - CEP: 01310-100</p>
+                    <p className="text-slate-800 font-semibold mb-1">Endereço Completo</p>
+                    <p className="text-slate-600">Rua das Flores, 123</p>
+                    <p className="text-slate-600">Vila Madalena, São Paulo/SP</p>
+                    <p className="text-slate-600">CEP: 05435-000</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-3">
-                  <Clock className="h-5 w-5 text-primary-400 mt-1 flex-shrink-0" />
+                <div className="flex items-start space-x-4">
+                  <Clock className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
-                    <p className="text-white font-medium">Horário de Funcionamento</p>
-                    <p className="text-secondary-300 text-sm">Segunda a Sexta: 8h às 18h</p>
-                    <p className="text-secondary-300 text-sm">Sábado: 9h às 13h</p>
+                    <p className="text-slate-800 font-semibold mb-1">Horário de Funcionamento</p>
+                    <p className="text-slate-600">Segunda a Sexta: 8h às 18h</p>
+                    <p className="text-slate-600">Sábado: 8h às 12h</p>
+                    <p className="text-slate-600">Domingo: Fechado</p>
+                    <p className="text-blue-600 font-medium mt-2">Emergências: 24h</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-3">
-                  <Phone className="h-5 w-5 text-primary-400 mt-1 flex-shrink-0" />
+                <div className="flex items-start space-x-4">
+                  <Phone className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
-                    <p className="text-white font-medium">Contato Direto</p>
-                    <p className="text-secondary-300 text-sm">+55 (11) 9999-9999</p>
-                    <p className="text-secondary-300 text-sm">contato@invr-up.com</p>
+                    <p className="text-slate-800 font-semibold mb-1">Contatos</p>
+                    <p className="text-slate-600">Fixo: (11) 3456-7890</p>
+                    <p className="text-slate-600">WhatsApp: (11) 99876-5432</p>
+                    <p className="text-slate-600">Email: contato@inovar-odontologia.com.br</p>
                   </div>
+                </div>
+
+                <div className="bg-white p-4 rounded-xl">
+                  <p className="text-slate-800 font-semibold mb-2">Como Chegar:</p>
+                  <p className="text-slate-600 text-sm">
+                    • Metrô: Estação Fradique Coutinho (Linha 4-Amarela)<br />
+                    • Ônibus: Linhas 107M, 476A, 477P<br />
+                    • Estacionamento próprio disponível<br />
+                    • Acesso para pessoas com deficiência
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -363,7 +426,7 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="container-max">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -372,15 +435,15 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Perguntas <span className="gradient-text">Frequentes</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+              Perguntas <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">Frequentes</span>
             </h2>
-            <p className="text-xl text-secondary-300 max-w-2xl mx-auto">
-              Encontre respostas para as dúvidas mais comuns sobre nossos serviços.
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Encontre respostas para as dúvidas mais comuns sobre nossos serviços e atendimento.
             </p>
           </motion.div>
 
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="max-w-4xl mx-auto space-y-6">
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
@@ -388,17 +451,61 @@ const Contact = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-effect p-6 rounded-2xl"
+                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <h4 className="text-lg font-semibold text-white mb-3">
+                <h4 className="text-lg font-semibold text-slate-800 mb-3">
                   {faq.question}
                 </h4>
-                <p className="text-secondary-300 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed">
                   {faq.answer}
                 </p>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section-padding bg-gradient-to-r from-blue-600 to-teal-600 text-white">
+        <div className="container-max text-center">
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Pronto para Cuidar do Seu Sorriso?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              Agende sua consulta hoje mesmo e descubra como podemos transformar seu sorriso com excelência e cuidado.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="tel:+551134567890"
+                className="bg-white text-blue-600 hover:bg-blue-50 font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 flex items-center justify-center space-x-2"
+              >
+                <Phone className="h-5 w-5" />
+                <span>Ligar Agora</span>
+              </a>
+              <a
+                href="https://wa.me/5511998765432"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-8  rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 flex items-center justify-center space-x-2"
+              >
+                <MessageSquare className="h-5 w-5" />
+                <span>WhatsApp</span>
+              </a>
+              <a
+                href="/agendamento"
+                className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:bg-white/20 hover:border-white/30 flex items-center justify-center space-x-2"
+              >
+                <Calendar className="h-5 w-5" />
+                <span>Agendar Online</span>
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
     </motion.div>
